@@ -1,0 +1,15 @@
+docker --version
+docker build -t andrei997teo/platformservice .
+docker run -p 8080:80 -d andrei997teo/platformservice
+docker ps
+docker start [container_id]
+docker stop [container_id]
+docker push andrei997teo/platformservice
+
+kubectl version
+kubectl apply -f platforms-depl.yaml
+kubectl get deployments
+kubectl get pods
+kubectl delete deployment platforms-depl
+
+kubectl apply -f platforms-np-srv.yaml
