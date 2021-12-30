@@ -13,3 +13,12 @@ kubectl get pods
 kubectl delete deployment platforms-depl
 
 kubectl apply -f platforms-np-srv.yaml
+kubectl rollout restart deployment platforms-depl
+
+NGINX Controller
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml
+
+kubectl get namespace
+kubectl get pods --namespace=ingress-nginx
+
+kubectl apply -f ingress-srv.yaml
