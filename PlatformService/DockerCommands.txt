@@ -22,3 +22,14 @@ kubectl get namespace
 kubectl get pods --namespace=ingress-nginx
 
 kubectl apply -f ingress-srv.yaml
+
+--Create Persistent Volume Claim for the local database
+kubectl get storageclass
+kubectl apply -f local-pvc.yaml
+kubectl get pvc
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="1234!Asd"
+kubectl apply -f mssql-plat-depl.yaml
+
+--Error management
+kubectl delete deployment platforms-depl
+kubectl apply -f platforms-depl.yaml

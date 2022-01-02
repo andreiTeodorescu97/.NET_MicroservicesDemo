@@ -19,17 +19,36 @@ namespace PlatformService
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IConfiguration Configuration { get; }
+
+        private readonly IWebHostEnvironment _env;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
-
-        public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(opt => 
-                opt.UseInMemoryDatabase("InMem"));
+            Console.WriteLine($"--> Platform Service EnvironmentName {_env.EnvironmentName}");
+            Console.WriteLine($"--> Platform Service ContentRootPath {_env.ContentRootPath}");
+            Console.WriteLine($"--> Platform Service ApplicationName {_env.ApplicationName}");
+            Console.WriteLine($"--> Platform Service ContentRootFileProvider {_env.ContentRootFileProvider}");
+
+            if(_env.IsProduction())
+            {
+                Console.WriteLine($"--> Platform Service using SQL Server");
+                services.AddDbContext<AppDbContext>(opt =>
+                    opt.UseSqlServer(Configuration.GetConnectionString("PlatformsConn")));
+            }
+            else
+            {
+                Console.WriteLine($"--> Platform Service using InMem Db");
+                services.AddDbContext<AppDbContext>(opt => 
+                    opt.UseInMemoryDatabase("InMem"));
+            }
+
 
             services.AddScoped<IPlatformRepo, PlatformRepo>();
 
@@ -66,7 +85,7 @@ namespace PlatformService
                 endpoints.MapControllers();
             });
 
-            PrepDbo.PrePopulation(app);
+            PrepDbo.PrePopulation(app, env.IsProduction());
         }
     }
 }
