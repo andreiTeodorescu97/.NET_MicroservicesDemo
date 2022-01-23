@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using PlatformService.Models;
 
 namespace PlatformService.Data
@@ -16,14 +17,20 @@ namespace PlatformService.Data
         }
         public void CreatePlatform(Platform plat)
         {
-            if(plat == null)
+            if (plat == null)
             {
                 throw new ArgumentNullException(nameof(plat));
             }
-
+            var lastId = GetAllPlatforms().OrderByDescending(c => c.Id).FirstOrDefault().Id;
+            Console.WriteLine($"--> Last registered id is {lastId}");
             _context.Platforms.Add(plat);
+            Console.WriteLine($"--> Platform added to DB: {JsonSerializer.Serialize(plat)}, Number of platforms: {GetNumberOfPlatforms()}");
         }
 
+        public int GetNumberOfPlatforms()
+        {
+            return _context.Platforms.Count();
+        }
         public IEnumerable<Platform> GetAllPlatforms()
         {
             return _context.Platforms.ToList();

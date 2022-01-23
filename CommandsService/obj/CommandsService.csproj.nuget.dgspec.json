@@ -48,6 +48,18 @@
               "target": "Package",
               "version": "[8.1.1, )"
             },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.19.3, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.42.0, )"
+            },
+            "Grpc.Tools": {
+              "target": "Package",
+              "version": "[2.43.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.12, )"
@@ -63,6 +75,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.12, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

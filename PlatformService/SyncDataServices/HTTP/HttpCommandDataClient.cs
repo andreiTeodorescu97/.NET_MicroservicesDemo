@@ -32,7 +32,7 @@ namespace PlatformService.SyncDataServices.HTTP
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("--> Sync POST to CommandsService was OK!");
+                Console.WriteLine($"--> Sync POST to CommandsService was OK! With message: {JsonSerializer.Serialize(platform)}");
             }
             else
             {

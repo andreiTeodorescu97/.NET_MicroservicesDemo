@@ -62,3 +62,9 @@ E:\Projects\MicroservicesDemoProject\CommandsService\obj\Debug\net5.0\CommandsSe
 E:\Projects\MicroservicesDemoProject\CommandsService\obj\Debug\net5.0\ref\CommandsService.dll
 E:\Projects\MicroservicesDemoProject\CommandsService\obj\Debug\net5.0\CommandsService.pdb
 E:\Projects\MicroservicesDemoProject\CommandsService\obj\Debug\net5.0\CommandsService.genruntimeconfig.cache
+E:\Projects\MicroservicesDemoProject\CommandsService\bin\Debug\net5.0\appsettings.Production.json
+E:\Projects\MicroservicesDemoProject\CommandsService\bin\Debug\net5.0\RabbitMQ.Client.dll
+E:\Projects\MicroservicesDemoProject\CommandsService\bin\Debug\net5.0\Google.Protobuf.dll
+E:\Projects\MicroservicesDemoProject\CommandsService\bin\Debug\net5.0\Grpc.Core.Api.dll
+E:\Projects\MicroservicesDemoProject\CommandsService\bin\Debug\net5.0\Grpc.Net.Client.dll
+E:\Projects\MicroservicesDemoProject\CommandsService\bin\Debug\net5.0\Grpc.Net.Common.dll
